@@ -7,19 +7,49 @@ export type TUserTypes = {
 export type TBusinessTypes = {
   user_id?: string;
   business_name: string;
-  business_listing_price: number;
-  business_gross_revenue: number;
-  business_cash_flow: number;
-  business_notes: string;
-  loan_sba_amount: number;
-  loan_sba_rate: number;
-  loan_sba_term: number;
-  loan_seller_amount: number;
-  loan_seller_rate: number;
-  loan_seller_term: number;
-  loan_down_payment: number;
-  desired_owner_salary: number;
-  additional_startup_capital: number;
-  additional_capital_expenses: number;
-  expected_annual_growth_rate: number;
-}
+  business_location?: string;
+  business_url?: string;
+  business_attachments?: string[]; // Array for attachments (URLs or file paths)
+
+  // Independent KPI fields with value and notes
+  current_cashflow?: { value: number; notes?: string[] };
+  expected_salary?: { value: number; notes?: string[] };
+  gross_revenue?: { value: number; notes?: string[] };
+  growth_rate?: { value: number; notes?: string[] };
+  asking_price?: { value: number; notes?: string[] };
+  sde_value?: { value: number; notes?: string[] };
+
+  loan_sba?: {
+    amount?: { value: number; notes?: string[] };
+    rate?: { value: number; notes?: string[] };
+    term?: { value: number; notes?: string[] };
+  };
+
+  loan_additional?: {
+    amount?: { value: number; notes?: string[] };
+    rate?: { value: number; notes?: string[] };
+    term?: { value: number; notes?: string[] };
+  };
+
+  additional_debt?: { value: number; notes?: string[] };
+
+  // Dependent KPIs (calculated)
+  dscr?: { value: number; notes?: string[] };
+  projected_cashflow?: { value: number; notes?: string[] };
+  gross_multiple?: { value: number; notes?: string[] };
+  sde_multiple?: { value: number; notes?: string[] };
+  sba_loan_payment?: { value: number; notes?: string[] };
+  total_debt_payments?: { value: number; notes?: string[] };
+  projected_net_profit_margin?: { value: number; notes?: string[] };
+
+  // General business notes
+  business_notes?: string[];
+
+  // Custom KPI cards
+  custom_cards_columns?: {
+    title: string;                  // Custom metric title (e.g., "Customer Retention Rate")
+    value: string | number;         // Can store numbers or strings
+    metric_type: '$' | 'X' | 'N' | '%'; // Metric type: $, number (X), text (N), or percentage (%)
+    notes?: string[];               // Optional notes for this custom metric
+  }[];
+};

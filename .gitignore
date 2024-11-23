@@ -1,0 +1,67 @@
+# Node modules
+node_modules/
+
+# TypeScript build artifacts
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Debugging files
+*.pid
+*.seed
+*.stackdump
+
+# Coverage directory used by tools like Jest
+coverage/
+
+# Optional npm cache directories
+.npm
+
+# IDE files (examples for VSCode, IntelliJ, etc.)
+.vscode/
+.idea/
+*.iml
+*.sw?
+*.bak
+
+# macOS system files
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build output
+*.out
+*.log
+*.map
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional lock files
+package-lock.json
+yarn.lock
+
+# Generated documentation
+docs/
+doc/
+
+# Local project s

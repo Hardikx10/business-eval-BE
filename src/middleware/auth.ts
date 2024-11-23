@@ -8,9 +8,7 @@ type customRequest = Request & { user?: any };
 
 export const isAuthenticated = async (req:customRequest, res:Response, next:Function) => {
     try {
-      if (
-        req.headers.authorization?.startsWith("Bearer")
-      ) {
+      if (req.headers.authorization?.startsWith("Bearer")) {
         const token =
           req.headers.authorization.split(" ")[1]
         if (token) {

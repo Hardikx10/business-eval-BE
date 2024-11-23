@@ -2,7 +2,7 @@ import httpStatus from "http-status";
 import db from "../models";
 import { TBusinessTypes } from "../types";
 import ApiError from "../utils/ApiError";
-import { calculateAllBusinessMetrics } from "../helpers/business";
+
 
 const createBusiness = async (body: TBusinessTypes) => {
     // check existed business with same name
@@ -17,6 +17,8 @@ const createBusiness = async (body: TBusinessTypes) => {
 };
 
 const updateBusiness = async (id: string, body: any) => {
+    console.log(body);
+    
     const checkBusiness = await db.business.findById(id);
     if (!checkBusiness) {
         throw new ApiError(httpStatus.BAD_REQUEST, 'Business not found');
@@ -32,18 +34,18 @@ const getBusinessById = async (id: string) => {
     if(!business){
         throw new ApiError(httpStatus.NOT_FOUND, 'Business not found');
     }
-    const metrics = await calculateAllBusinessMetrics(business);
-    return {data:business, metrics};
+    // const metrics = await calculateAllBusinessMetrics(business);
+    return {data:business};
 };
 
-const getAllBusinessMetrics = async (user_id:string) => {
-    const businesses = await db.business.find({user_id});
-    const metrics = await Promise.all(businesses.map(async (business) => {
-        const metrics = await calculateAllBusinessMetrics(business);
-        return {data:business, metrics};
-    }));
-    return metrics;
-};
+// const getAllBusinessMetrics = async (user_id:string) => {
+//     const businesses = await db.business.find({user_id});
+//     const metrics = await Promise.all(businesses.map(async (business) => {
+//         const metrics = await calculateAllBusinessMetrics(business);
+//         return {data:business, metrics};
+//     }));
+//     return metrics;
+// };
 
 const deleteBusiness = async (id: string) => {
     const business = await db.business.findByIdAndDelete(id);
@@ -54,7 +56,6 @@ const businessService = {
     createBusiness,
     updateBusiness,
     getBusinessById,
-    getAllBusinessMetrics,
     deleteBusiness 
 };
 
