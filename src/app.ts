@@ -27,7 +27,7 @@ import cors from 'cors';
   app.use(errorHandler)
 
   app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+    return console.log(`Express is listening at http://localhost:${process.env.PORT}`);
   });
 
 })();
