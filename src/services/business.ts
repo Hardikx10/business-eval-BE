@@ -31,6 +31,8 @@ const updateBusiness = async (id: string, body: any) => {
 
 const getBusinessById = async (id: string) => {
     const business = await db.business.findById(id);
+    console.log(business);
+    
     if(!business){
         throw new ApiError(httpStatus.NOT_FOUND, 'Business not found');
     }
