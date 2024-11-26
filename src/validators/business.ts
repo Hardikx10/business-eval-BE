@@ -209,10 +209,12 @@ export const updateBusinessValidator = {
     // Custom KPI cards
     custom_cards_columns: Joi.array().items(
       Joi.object({
-        title: Joi.string().required(),
+        id:Joi.string().required(),
+        name: Joi.string().required(),
         value: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
-        metric_type: Joi.string().valid('$', 'X', 'N', '%').required(),
+        metricType: Joi.string().valid('$', 'X', 'N', '%').required(),
         notes: Joi.array().items(Joi.string()).optional(),
+        isIndependent: Joi.boolean().optional()
       })
     ).optional(),
 

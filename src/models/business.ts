@@ -1,3 +1,4 @@
+import { required, string } from 'joi';
 import { Schema, model, Document } from 'mongoose';
 
 // KPI Metric Schema 
@@ -8,10 +9,12 @@ const KPIMetricSchema = new Schema({
 
 // Custom cards for additional dynamic metrics
 const CustomCardSchema = new Schema({
-  title: { type: String, required: true },
+  id: {type:String, required:true},
+  name: { type: String, required: true },
   value: { type: Schema.Types.Mixed, required: true }, // Can store numbers or strings
-  metric_type: { type: String, enum: ['$', 'X', 'N', '%'], required: true },
+  metricType: { type: String, enum: ['$', 'X', 'N', '%'], required: true },
   notes: { type: [String], default: [] },
+  isIndependent : {type:Boolean, default:true}
 });
 
 // Main Business Interface
