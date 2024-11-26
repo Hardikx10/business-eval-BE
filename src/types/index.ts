@@ -47,7 +47,7 @@ export type TBusinessTypes = {
 
   // Custom KPI cards
   custom_cards_columns?: {
-    id:string;
+    id?:string;
     name: string;                  // Custom metric title (e.g., "Customer Retention Rate")
     value: string | number;         // Can store numbers or strings
     metricType: '$' | 'X' | 'N' | '%'; // Metric type: $, number (X), text (N), or percentage (%)

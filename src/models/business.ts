@@ -9,7 +9,7 @@ const KPIMetricSchema = new Schema({
 
 // Custom cards for additional dynamic metrics
 const CustomCardSchema = new Schema({
-  id: {type:String, required:true},
+  id: {type:String},
   name: { type: String, required: true },
   value: { type: Schema.Types.Mixed, required: true }, // Can store numbers or strings
   metricType: { type: String, enum: ['$', 'X', 'N', '%'], required: true },
