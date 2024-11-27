@@ -4,9 +4,9 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"tsc -b",
-    "server":"node dist/app.js",
-    "start": "tsc && node dist/app.js",
+    "build":"tsc",
+    "server":"tsc && node dist/app.js",
+    "start": "node dist/app.js",
     "dev": "tsc && nodemon dist/app.js"
   },
   "keywords": [],
