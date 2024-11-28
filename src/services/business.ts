@@ -4,6 +4,7 @@ import { TBusinessTypes } from "../types";
 import ApiError from "../utils/ApiError";
 
 
+
 const createBusiness = async (body: TBusinessTypes) => {
     // check existed business with same name
     if(body.user_id){
@@ -17,7 +18,7 @@ const createBusiness = async (body: TBusinessTypes) => {
 };
 
 const updateBusiness = async (id: string, body: any) => {
-    console.log(body);
+    
     
     const checkBusiness = await db.business.findById(id);
     if (!checkBusiness) {
@@ -31,7 +32,7 @@ const updateBusiness = async (id: string, body: any) => {
 
 const getBusinessById = async (id: string) => {
     const business = await db.business.findById(id);
-    console.log(business);
+    
     
     if(!business){
         throw new ApiError(httpStatus.NOT_FOUND, 'Business not found');
@@ -54,12 +55,26 @@ const deleteBusiness = async (id: string) => {
     return business;
 };
 
+const uploadFile = async(id:string, fileUrl:string)=>{
+    console.log(fileUrl);
+    
+    const updatedBusiness = await db.business.findByIdAndUpdate(id,
+        { $push: {business_attachments : fileUrl}},
+        { new: true}
+    ) 
+
+    return updateBusiness
+    
+    
+}
+
 const businessService = {
     createBusiness,
     updateBusiness,
     getBusinessById,
     getAllBusinessMetrics,
-    deleteBusiness 
+    deleteBusiness,
+    uploadFile
 };
 
 export default businessService;
