@@ -40,14 +40,14 @@ const getBusinessById = async (id: string) => {
     return {data:business};
 };
 
-// const getAllBusinessMetrics = async (user_id:string) => {
-//     const businesses = await db.business.find({user_id});
-//     const metrics = await Promise.all(businesses.map(async (business) => {
-//         const metrics = await calculateAllBusinessMetrics(business);
-//         return {data:business, metrics};
-//     }));
-//     return metrics;
-// };
+const getAllBusinessMetrics = async (user_id:string) => {
+    const businesses = await db.business.find({user_id});
+    // const metrics = await Promise.all(businesses.map(async (business) => {
+    //     const metrics = await calculateAllBusinessMetrics(business);
+    //     return {data:business, metrics};
+    // }));
+    return {data:businesses};
+};
 
 const deleteBusiness = async (id: string) => {
     const business = await db.business.findByIdAndDelete(id);
@@ -58,6 +58,7 @@ const businessService = {
     createBusiness,
     updateBusiness,
     getBusinessById,
+    getAllBusinessMetrics,
     deleteBusiness 
 };
 

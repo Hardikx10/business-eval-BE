@@ -18,6 +18,12 @@ export const getBusinessById = catchAsync(async (req: Request, res: Response) =>
     res.status(httpStatus.OK).json({business});
 });
 
+export const getAllBusiness = catchAsync(async (req: Request, res: Response) => {
+    //@ts-ignore
+    const business = await businessService.getAllBusinessMetrics(req.user._id); 
+    res.status(httpStatus.OK).json({business});
+});
+
 export const deleteBusiness = catchAsync(async (req: Request, res: Response) => {
     const deletedBusiness = await businessService.deleteBusiness(req.params.id);
     res.status(httpStatus.OK).json({deletedBusiness});
