@@ -44,7 +44,7 @@ export type TBusinessTypes = {
 
   // General business notes
   business_notes?: string[];
-
+  cards_order?:string[];
   // Custom KPI cards
   custom_cards_columns?: {
     id?:string;

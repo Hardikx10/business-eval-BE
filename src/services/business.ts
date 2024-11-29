@@ -26,7 +26,7 @@ const updateBusiness = async (id: string, body: any) => {
     }
     const business = await db.business.findByIdAndUpdate(id, {
         $set: body
-    });
+    }, { new: true });
     return business;
 };
 
@@ -64,8 +64,6 @@ const uploadFile = async(id:string, fileUrl:string)=>{
     ) 
 
     return updateBusiness
-    
-    
 }
 
 const businessService = {

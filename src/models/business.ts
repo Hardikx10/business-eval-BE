@@ -60,6 +60,8 @@ interface IBusiness extends Document {
     metric_type: '$' | 'X' | 'N' | '%';
     notes?: string[];
   }[];
+
+  cards_order?:string[]
 }
 
 // Main Business Schema
@@ -71,6 +73,7 @@ const BusinessSchema = new Schema({
   business_attachments: { type: [String], default: [] },
   business_notes:{type:[String],default:[]},
 
+  cards_order:{type:[String],default:[]},
   // Independent KPIs 
   current_cashflow: KPIMetricSchema,
   expected_salary: KPIMetricSchema,

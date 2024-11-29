@@ -7,7 +7,7 @@ export const createBusinessValidator = {
     business_location: Joi.string().optional().allow(''),
     business_url: Joi.string().uri().optional().allow(''),
     business_attachments: Joi.array().items(Joi.string()).optional(),
-
+    cards_order : Joi.array().items(Joi.string()).optional(),
     // Independent KPIs with value and notes
     current_cashflow: Joi.object({
       value: Joi.number().optional(),
@@ -117,7 +117,7 @@ export const updateBusinessValidator = {
     business_location: Joi.string().optional().allow(''),
     business_url: Joi.string().uri().optional().allow(''),
     business_attachments: Joi.array().items(Joi.string()).optional(),
-
+    cards_order : Joi.array().items(Joi.string()).optional(),
     // Core KPI fields with value and notes (all optional for updates)
     current_cashflow: Joi.object({
       value: Joi.number().optional(),
