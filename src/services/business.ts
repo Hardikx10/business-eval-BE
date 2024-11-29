@@ -63,7 +63,7 @@ const uploadFile = async(id:string, fileUrl:string)=>{
         { new: true}
     ) 
 
-    return updateBusiness
+    return updatedBusiness
 }
 
 const businessService = {
