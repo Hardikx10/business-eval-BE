@@ -39,6 +39,7 @@ export type TBusinessTypes = {
   gross_multiple?: { value: number; notes?: string[] };
   sde_multiple?: { value: number; notes?: string[] };
   sba_loan_payment?: { value: number; notes?: string[] };
+  additional_loan_payment?:{value:number; notes?:string[]};
   total_debt_payments?: { value: number; notes?: string[] };
   projected_net_profit_margin?: { value: number; notes?: string[] };
 

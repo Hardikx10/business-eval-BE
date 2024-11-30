@@ -50,6 +50,7 @@ interface IBusiness extends Document {
   gross_multiple?: { value: number; notes?: string[] };
   sde_multiple?: { value: number; notes?: string[] };
   sba_loan_payment?: { value: number; notes?: string[] };
+  additional_loan_payment?:{value : number; notes?:string[]};
   total_debt_payments?: { value: number; notes?: string[] };
   projected_net_profit_margin?: { value: number; notes?: string[] };
 
@@ -99,6 +100,7 @@ const BusinessSchema = new Schema({
   gross_multiple: KPIMetricSchema,
   sde_multiple: KPIMetricSchema,
   sba_loan_payment: KPIMetricSchema,
+  additional_loan_payment:KPIMetricSchema,
   total_debt_payments: KPIMetricSchema,
   projected_net_profit_margin: KPIMetricSchema,
 

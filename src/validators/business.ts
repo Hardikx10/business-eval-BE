@@ -87,6 +87,10 @@ export const createBusinessValidator = {
       value: Joi.number().optional(),
       notes: Joi.array().items(Joi.string()).optional(),
     }).optional(),
+    additional_loan_payment: Joi.object({
+      value: Joi.number().optional(),
+      notes: Joi.array().items(Joi.string()).optional(),
+    }).optional(),
     total_debt_payments: Joi.object({
       value: Joi.number().optional(),
       notes: Joi.array().items(Joi.string()).optional(),
@@ -197,6 +201,11 @@ export const updateBusinessValidator = {
       value: Joi.number().optional(),
       notes: Joi.array().items(Joi.string()).optional(),
     }).optional(),
+    additional_loan_payment: Joi.object({
+      value: Joi.number().optional(),
+      notes: Joi.array().items(Joi.string()).optional(),
+    }).optional(),
+
     total_debt_payments: Joi.object({
       value: Joi.number().optional(),
       notes: Joi.array().items(Joi.string()).optional(),
