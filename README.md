@@ -13,18 +13,18 @@
 
     - create .env file in the root folder
 
-    `JWT_SECRET=`
-    `MONGO_URL=`
-    `NODE_MAIL_HOST=`
-    `NODE_MAIL_EMAIL=`
-    `NODE_MAIL_PASSWORD=`
-    `PORT=4000`
+    1. `JWT_SECRET=`
+    2. `MONGO_URL=`
+    3. `NODE_MAIL_HOST=`
+    4. `NODE_MAIL_EMAIL=`
+    5. `NODE_MAIL_PASSWORD=`
+    6. `PORT=4000`
 
 
-    `AWS_ACCESS_KEY_ID=`
-    `AWS_SECRET_ACCESS_KEY=`
-    `AWS_REGION=`
-    `S3_BUCKET_NAME=`
+    7. `AWS_ACCESS_KEY_ID=`
+    8. `AWS_SECRET_ACCESS_KEY=`
+    9. `AWS_REGION=`
+    10. `S3_BUCKET_NAME=`
 
 
 4. Run locally
