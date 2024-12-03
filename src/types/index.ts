@@ -6,7 +6,7 @@ export type TUserTypes = {
 
 export type TBusinessTypes = {
   user_id?: string;
-  business_name: string;
+  business_name?: string;
   business_location?: string;
   business_url?: string;
   business_attachments?: string[]; // Array for attachments (URLs or file paths)

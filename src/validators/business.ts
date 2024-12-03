@@ -3,7 +3,7 @@ import Joi from "joi";
 export const createBusinessValidator = {
   body: Joi.object().keys({
     user_id: Joi.string().optional(),
-    business_name: Joi.string().required(),
+    business_name: Joi.string().optional(),
     business_location: Joi.string().optional().allow(''),
     business_url: Joi.string().uri().optional().allow(''),
     business_attachments: Joi.array().items(Joi.string()).optional(),
@@ -117,7 +117,7 @@ export const createBusinessValidator = {
 
 export const updateBusinessValidator = {
   body: Joi.object().keys({
-    business_name: Joi.string().optional(),
+    business_name: Joi.string().optional().allow(''),
     business_location: Joi.string().optional().allow(''),
     business_url: Joi.string().uri().optional().allow(''),
     business_attachments: Joi.array().items(Joi.string()).optional(),

@@ -20,7 +20,7 @@ const CustomCardSchema = new Schema({
 // Main Business Interface
 interface IBusiness extends Document {
   user_id: string;
-  business_name: string;
+  business_name?: string;
   business_location?: string;
   business_url?: string;
   business_attachments?: string[];
@@ -68,7 +68,7 @@ interface IBusiness extends Document {
 // Main Business Schema
 const BusinessSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  business_name: { type: String, required: true },
+  business_name: { type: String },
   business_location: { type: String },
   business_url: { type: String },
   business_attachments: { type: [String], default: [] },
